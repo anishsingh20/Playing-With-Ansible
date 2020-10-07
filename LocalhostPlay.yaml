@@ -1,0 +1,18 @@
+---
+
+- hosts: localhost
+  tasks:
+    - name: Create a file via SSH
+      file:
+        dest: /tmp/ssh-file-play1
+        state: touch
+
+
+- hosts: localhost
+  connection: local
+
+  tasks:
+    - name: Create file via direct local connection
+      file:
+        dest: /tmp/local-file-play2
+        state: touch
