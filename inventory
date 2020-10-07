@@ -1,0 +1,29 @@
+[all]
+vm1 ansible_host=192.168.29.249 ansible_user=root
+vm2 ansible_host=192.168.29.213 ansible_user=root
+vm3 ansible_host=192.168.29.250 ansible_user=root
+vm4 ansible_host=192.168.29.205 ansible_user=root
+db1 ansible_host=192.168.29.221 ansible_user=root
+db2 ansible_host=192.168.29.248 ansible_user=root
+bck1 ansible_host=192.168.29.248 ansible_user=root
+
+[vm]
+vm1
+vm2
+vm3
+vm4
+
+[db]
+db1
+db2
+
+[backup]
+bck1
+
+
+
+[all:vars]
+ansible_connection=ssh
+ansible_ssh_user=root
+ansible_ssh_pass=lovee123
+

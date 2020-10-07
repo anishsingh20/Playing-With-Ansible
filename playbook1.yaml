@@ -1,0 +1,37 @@
+---
+# PLAY1 creates files on group all which has all the servers
+- hosts: all
+  tasks:
+    - name: create file on remote servers
+      file: 
+        dest: /tmp/file-play1
+        state: '{{ file_state }}'
+
+
+#play 2
+- hosts: vm
+  tasks: 
+    - name: Create files on VM group
+      file:
+        dest: /tmp/vm-file-play2
+        state: '{{file_state}}'
+
+
+# play 3 
+
+- hosts: all:!db
+  tasks:
+    - name: Create files on all but not DB group
+      file:
+        dest: /tmp/file-not-db-play3
+        state: '{{file_state}}'
+
+
+
+# play 4
+- hosts: all:&db:!vm:!backup
+  tasks:
+    - name: Created files only on DB group
+      file:
+        dest: /tmp/file-only-db-play4
+        state: '{{file_state}}'
