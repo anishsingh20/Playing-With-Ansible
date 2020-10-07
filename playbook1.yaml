@@ -16,7 +16,7 @@
     - name: Create files on VM group
       file:
         dest: /tmp/vm-file-play2
-        state: '{{file_state}}'
+        state: absent
 
 
 # play 3 
@@ -26,7 +26,7 @@
     - name: Create files on all but not DB group
       file:
         dest: /tmp/file-not-db-play3
-        state: '{{file_state}}'
+        state: absent
 
 
 
@@ -36,12 +36,12 @@
     - name: Created files only on DB group
       file:
         dest: /tmp/file-only-db-play4
-        state: '{{file_state}}'
+        state: absent
 
 
 #play 5
 
-hosts: all
+- hosts: all
   tasks:
     - name: Delete files on remote servers
       file: 
@@ -51,4 +51,3 @@ hosts: all
         - delete-file 
 
 
-        
