@@ -6,6 +6,8 @@
       file: 
         dest: /tmp/file-play1
         state: '{{ file_state }}'
+      tags:
+        - create-file 
 
 
 #play 2
@@ -35,3 +37,18 @@
       file:
         dest: /tmp/file-only-db-play4
         state: '{{file_state}}'
+
+
+#play 5
+
+hosts: all
+  tasks:
+    - name: Delete files on remote servers
+      file: 
+        dest: /tmp/file-play1
+        state: absent
+      tags:
+        - delete-file 
+
+
+        
