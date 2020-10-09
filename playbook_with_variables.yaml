@@ -1,0 +1,18 @@
+---
+
+- hosts: all
+  tasks:
+    - name: Tasks 1 on all hosts
+      file:
+        dest: '{{ all_file }}'
+        state: '{{ file_state }}'
+    - name: Task 2 for copying DB files
+      file:
+        dest: '{{ db_file }}'
+        state: '{{file_state}}'
+      when: db_file is defined
+    - name: Task 3 for bck
+      file:
+        dest: '{{ bck_file }}'
+        state: '{{file_state}}'
+      when: bck_file is defined

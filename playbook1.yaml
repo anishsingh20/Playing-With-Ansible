@@ -11,7 +11,7 @@
 
 
 #play 2
-- hosts: vm
+- hosts: vm1
   tasks: 
     - name: Create files on VM group
       file:
