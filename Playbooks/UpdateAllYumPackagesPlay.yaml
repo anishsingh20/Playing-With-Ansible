@@ -1,0 +1,9 @@
+---
+
+- hosts: all
+  tasks:
+    - name: Update all existing Yum packages on CentOS machines
+      yum:
+        name: '*'
+        state: "{{ pkg_state }}"
+      when: ansible_os_family == "RedHat"
