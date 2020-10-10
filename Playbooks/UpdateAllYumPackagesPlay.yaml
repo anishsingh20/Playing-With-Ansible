@@ -1,6 +1,6 @@
 ---
 
-- hosts: all
+- hosts: vm
   tasks:
     - name: Update all existing Yum packages on CentOS machines
       yum:
