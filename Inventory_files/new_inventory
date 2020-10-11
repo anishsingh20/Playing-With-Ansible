@@ -1,6 +1,6 @@
 [all]
 vm1 ansible_host=192.168.29.248 ansible_user=root
-vm2 ansible_host=192.168.29.214 ansible_user=root
+vm2 ansible_host=192.168.29.213 ansible_user=root
 vm3 ansible_host=192.168.29.249 ansible_user=root
 vm4 ansible_host=192.168.29.205 ansible_user=root
 db1 ansible_host=192.168.29.221 ansible_user=root

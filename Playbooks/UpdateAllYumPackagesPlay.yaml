@@ -6,4 +6,17 @@
       yum:
         name: '*'
         state: "{{ pkg_state }}"
-      when: ansible_os_family == "RedHat"
+      when: inventory_hostname == 'vm3'
+      when: ansible_os_family == "Ubuntu" 
+
+
+- hosts: vm
+  vars:
+    packages: [ruby,ansible,docker]
+  tasks:
+    - name: Install packages using yum on Redhat machines
+      yum:
+        name: '{{item}}'
+        state: '{{pkg_state}}'
+      with_items: '{{packages}}'
+      when: ansible_os_family = "RedHat"
