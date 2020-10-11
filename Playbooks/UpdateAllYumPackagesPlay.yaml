@@ -6,17 +6,29 @@
       yum:
         name: '*'
         state: "{{ pkg_state }}"
-      when: inventory_hostname == 'vm3'
       when: ansible_os_family == "Ubuntu" 
+      tags: 
+        - Update all Packages
+
+- hosts: vm
+  tasks:
+    - name: Update Python on machines
+      yum:
+        name: python
+        state: "{{ pkg_state }}"
+      when: ansible_os_family == "RedHat"
+      tags: 
+        - Update Python       
 
 
 - hosts: vm
   vars:
-    packages: [ruby,ansible,docker]
+    packages: [ruby,docker]
   tasks:
     - name: Install packages using yum on Redhat machines
       yum:
-        name: '{{item}}'
+        name: '{{packages}}'
         state: '{{pkg_state}}'
-      with_items: '{{packages}}'
       when: ansible_os_family == "RedHat"
+      tags: 
+        - Install Ruby and Docker
