@@ -2,7 +2,7 @@
 
 - hosts: vm
   tasks:
-    - name: Update all existing Yum packages on CentOS machines
+    - name: Update all existing Yum packages on Ubuntu machines
       yum:
         name: '*'
         state: "{{ pkg_state }}"
@@ -19,4 +19,4 @@
         name: '{{item}}'
         state: '{{pkg_state}}'
       with_items: '{{packages}}'
-      when: ansible_os_family = "RedHat"
+      when: ansible_os_family == "RedHat"
