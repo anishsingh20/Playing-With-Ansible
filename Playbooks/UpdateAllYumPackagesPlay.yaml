@@ -14,7 +14,7 @@
   tasks:
     - name: Update Python on machines
       yum:
-        name: python
+        name: python3
         state: "{{ pkg_state }}"
       when: ansible_os_family == "RedHat"
       tags: 
