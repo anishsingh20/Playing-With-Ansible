@@ -25,8 +25,8 @@
     with_dict: '{{animals.cats}}'      
 
   - name: Iterate over animal array with dogs
-      file:
-        name: '/tmp/{{item.key}}-{{item.value.color}}'
-        state: '{{file_state}}'
-      with_dict: '{{animals.dogs}}'
-      when: 'item.value.color == "golden" '         
+    file:
+      name: '/tmp/{{item.key}}-{{item.value.color}}'
+      state: '{{file_state}}'
+    with_dict: '{{animals.dogs}}'
+    when: 'item.value.color == "golden" '         
