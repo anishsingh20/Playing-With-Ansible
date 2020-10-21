@@ -1,0 +1,25 @@
+---
+
+- hosts: vm
+  vars:
+    animals:
+      cats:
+        tabby:
+          color: grey
+          persnickityness: high
+        calico:
+          color: orange
+          persnickityness: medium
+      dogs:
+        doberman:
+          color: black
+          persnickityness: extreme
+        retriever:
+          color: golden
+          persnickityness: low
+  tasks:
+  - name: Iterate over animal array
+    file:
+      name: '/tmp/{{ite.key}}-{{item.value.color}}'
+      state: '{{file_state}}'
+    with_dict: '{{animals.cats}}'        
