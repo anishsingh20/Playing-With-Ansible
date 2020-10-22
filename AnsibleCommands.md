@@ -16,3 +16,6 @@ ansible -m debug -i new_inventory -a "var=hostvars" all
  
 
  7) Testing Plays with check mode without impacting the remote machine or changing anything there: ansible-playbook -i Inventory_files/new_inventory Playbooks/TemplatesDict.yaml --check
+
+
+ 8) Create an Ansible Galaxy: ansible-galaxy init create_user
