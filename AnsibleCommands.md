@@ -13,3 +13,6 @@ LIST OF ANSIBLE COMMANDS TO RUN TASKS:
 
 6) Getting host variables: ansible -m debug -i new_inventory -a "var=hostvars['vm1']['ansible_host']" all
 ansible -m debug -i new_inventory -a "var=hostvars" all
+ 
+
+ 7) Testing Plays with check mode without impacting the remote machine or changing anything there: ansible-playbook -i Inventory_files/new_inventory Playbooks/TemplatesDict.yaml --check
