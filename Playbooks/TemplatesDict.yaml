@@ -19,13 +19,13 @@
   tasks:
   - name: deploy a dictionary looping template file
     template:
-      src: templates/2-13-template.j2
-      dest: /tmp/2-13-template.txt
+      src: ../templates/templateDict.j2
+      dest: /tmp/templateDict.txt
     tags:
       - create
   - name: remove the templated file
     file:
-      dest: /tmp/2-13-template.txt
+      dest: /tmp/templateDict.txt
       state: absent
     tags:
       - destroy
