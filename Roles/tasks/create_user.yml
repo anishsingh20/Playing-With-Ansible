@@ -6,7 +6,7 @@
     state: '{{user_state}}'
     remove: yes
     shell: /bin/bash
-    groups: sudo
+    groups: root
     append: yes
 
 - name: Publish local ssh public key for remote login
