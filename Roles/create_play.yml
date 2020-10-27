@@ -1,8 +1,9 @@
 ---
 - hosts: vm
   vars:
-    user_name: robert
-    user_state: present
-    ssh_key: ~/.ssh/cloud_key.pub
+    user_name: anish
+    user_state: absent
+    ssh_key: /etc/ssh/ssh_host_rsa_key.pub
+
   tasks:
      - include_tasks: tasks/create_user.yml

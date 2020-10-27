@@ -1,2 +1,3 @@
 ---
 # defaults file for create_user
+user_state: present

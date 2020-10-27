@@ -1,5 +1,5 @@
 ---
-# tasks file for user_create
+# tasks file to create users which is tied to playbook create_play.yml
 - name: Create user on remote host
   user:
     name: '{{user_name}}'
@@ -10,7 +10,7 @@
     append: yes
 
 - name: Publish local ssh public key for remote login
-  authorized_key:
+  ansible.posix.authorized_key:
     user: '{{user_name}}'
     state: '{{user_state}}'
     key: "{{ lookup('file', '{{ssh_key}}') }}"
