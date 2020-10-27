@@ -4,5 +4,5 @@
      - include_role:
          name: create_user
        vars:
-         user_name: robert
-         ssh_key: ~/.ssh/cloud_key.pub
+         user_name: anish
+         ssh_key: /etc/ssh/ssh_host_rsa_key.pub
