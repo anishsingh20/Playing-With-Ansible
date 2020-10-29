@@ -1,41 +1,54 @@
 create_user
 =========
 
-A brief description of the role goes here.
+Create a user and a ssh public key on remote hosts, for remote access to the user from remote machines. 
 
 Requirements
 ------------
 
-# Define the required variables
 
+# default variables required
+# user name
 user_name: anishdefault
+
+# Default user state
+
 user_state: present/absent
+
+# SSH key location
+
+ssh_key: /etc/ssh/ssh_host_rsa_key.pub
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+NONE
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+NONE
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+# Create a playbook with below parameters
+---
+- hosts: vm
+  tasks:
+     - include_role:
+         name: create_user
+       vars:
+         user_name: anish
+         ssh_key: /etc/ssh/ssh_host_rsa_key.pub
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
 
 License
 -------
 
-BSD
+MIT
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Anish Singh Walia(loveeanish@gmail.com)
