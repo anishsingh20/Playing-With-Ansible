@@ -19,3 +19,7 @@ ansible -m debug -i new_inventory -a "var=hostvars" all
 
 
  8) Create an Ansible Galaxy: ansible-galaxy init create_user
+
+ 9) Login to ansible-galaxy: ansible-galaxy login
+
+ 10) Import an ansible galaxy online : ansible-galaxy import <github_user> <github_dir_name>
