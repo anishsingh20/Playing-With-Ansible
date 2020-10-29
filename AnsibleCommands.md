@@ -25,3 +25,5 @@ ansible -m debug -i new_inventory -a "var=hostvars" all
  10) Import an ansible galaxy online : ansible-galaxy import <github_user> <github_dir_name>
 
  11) Search roles on Ansible galaxy: ansible-galaxy search <role_name>
+
+ 12) Install a role from ansible galaxy to a specific location ./ : ansible-galaxy install anishsingh20.ansible_galaxy_create_user -p ./
