@@ -1,0 +1,21 @@
+---
+# tasks file to create users which is tied to playbook create_play.yml
+- name: Create user on remote host
+  user:
+    name: '{{user_name}}'
+    state: '{{user_state}}'
+    remove: yes
+    shell: /bin/bash
+    groups: root
+    append: yes
+
+- name: Publish local ssh public key for remote login
+  ansible.posix.authorized_key:
+    user: '{{user_name}}'
+    state: '{{user_state}}'
+    key: "{{ lookup('file', '{{ssh_key}}') }}"
+
+- name: Add bashrc to include host and user
+  template:
+    dest: '~{{user_name}}/.bashrc'
+    src: templates/bashrc.j2    
