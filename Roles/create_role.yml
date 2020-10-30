@@ -2,7 +2,6 @@
 - hosts: vm
   tasks:
      - include_role:
-         name: create_user
+         name: anishsingh20.ansible_galaxy_create_user
        vars:
-         user_name: anish
          ssh_key: /etc/ssh/ssh_host_rsa_key.pub
