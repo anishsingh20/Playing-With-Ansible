@@ -27,3 +27,7 @@ ansible -m debug -i new_inventory -a "var=hostvars" all
  11) Search roles on Ansible galaxy: ansible-galaxy search <role_name>
 
  12) Install a role from ansible galaxy to a specific location ./ : ansible-galaxy install anishsingh20.ansible_galaxy_create_user -p ./
+
+ 13) encrypting a file in ansible :  ansible-vault encrypt vault
+
+ 14) Edit our vault file: ansible-vault edit <name>
