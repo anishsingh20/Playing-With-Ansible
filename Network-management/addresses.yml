@@ -2,11 +2,15 @@
 - hosts: localhost
   connection: local
   vars:
-    net1: 10.0.0.0/24
-    net2gw: 10.10.0.1
-    net2nm: 255.255.0.0
+    gw: 10.0.0.1
+    netaddr: 255.255.224.0
+
   tasks:
-  - set_fact: net2="{{net2gw}}/{{net2nm}}"
-  - set_fact: net2gw={{net2|ipaddr('host/prefix')}}
-  - debug:
-      msg: "net2 is {{net2}}, gateway is {{net2gw}}"
+    - set_fact: net="{{gw}}/{{netaddr}}"
+    - set_fact: net1="{{net | ipaddr( 'host/prefix' ) }}"
+    - set_fact: intnet="{{gw| ipaddr('int')}}"
+    - set_fact: ipaddr1="{{ intnet|ipv4('address')}}"
+    - debug:
+        msg: "Network address are {{net}}, {{net1}} & {{intnet}} & {{ipaddr1}}"
+
+
