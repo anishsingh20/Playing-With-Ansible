@@ -1,0 +1,11 @@
+---
+- hosts: vm4
+  tasks:
+    - name: Idempotent copy command to copy a file
+      copy:
+        src: file.txt
+        dest: /tmp/file.txt
+      tags:
+        - create
+        
+
