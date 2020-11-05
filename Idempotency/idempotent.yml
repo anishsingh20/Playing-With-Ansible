@@ -7,5 +7,26 @@
         dest: /tmp/file.txt
       tags:
         - create
-        
+
+    - name: An idempotent command
+      lineinfile:
+        dest: /tmp/file.txt
+        regexp: '^(.*)is an(.*)$'
+        backrefs: true
+        line: '\1is really an\2'
+      tags:
+        - create
+
+    - name: Non-idempotent command
+      shell: " echo This is a non idempotent file >> /tmp/non-idempotent.txt"
+      tags:
+        - create
+
+    - name: Destroy the file
+      file:
+        path: /tmp/*
+        state: absent
+      tags:
+        - destroy
+
 
