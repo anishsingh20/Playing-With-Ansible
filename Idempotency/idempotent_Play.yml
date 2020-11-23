@@ -16,6 +16,7 @@
     - name: Show the state of file
       debug:
         var: grep_state.rc
+        msg: 'The state of file is {{grep_state.rc}}'
 
     - name: An Idempotent copy command
       copy:
@@ -27,11 +28,12 @@
         - destroy
 
     - name: Modify the file
-      command: sed - ie 's/is/is really an/' {{target}}
+      command: sed 's/is/is really an/' {{target}}
       when: grep_state.rc != 0
       tags:
         - create
         - destroy
+
 
     - name: Remove the file
       file:
