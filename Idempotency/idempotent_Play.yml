@@ -1,0 +1,14 @@
+---
+
+- hosts: vm1
+  vars:
+    target: /tmp/file.txt
+
+  tasks:
+    - name: Discover the State of file
+      command: grep "is really an"  {{target}}
+      register: grep_state
+      tags:
+        - create
+        - destroy
+      ignore_errors: true

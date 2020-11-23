@@ -1,5 +1,5 @@
 ---
-- hosts: vm4
+- hosts: vm1
   tasks:
     - name: Idempotent copy command to copy a file
       copy:
